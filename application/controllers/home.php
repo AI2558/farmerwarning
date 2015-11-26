@@ -20,29 +20,25 @@ class Home extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this -> session -> set_userdata('page', 'home');
-		
+		$this -> load -> model("home_model");
 	}
 
 	public function index() {
-		//////////////////////////////////////////////////////////////////////////////////////
-		$data["url_api_value"] = null;
-		//////////////////////////////////////////////////////////////////////////////////////
-		$this -> load -> view('header', $data);
+		$data["anti"] = null;
+		$this -> load -> view('header');
 		$this -> load -> view("home_view", $data);
 		$this -> load -> view('footer');
 	}
 
-	public function value() {
+	public function weed() {
 		//////////////////////////////////////////////////////////////////////////////////////
-		// print_r($_POST);
-		$data["url_api_value"] = $this -> input -> post('url_api');
-		// $url_api = $_POST['submit_url'];
-		// echo $url_api;
-		$this -> session -> set_userdata('url_api_session', $data["url_api_value"]);
-		//////////////////////////////////////////////////////////////////////////////////////
-		$this -> load -> view('header', $data);
+		$weed = $this -> input -> post('weed_select');
+		$data["anti"] = $this -> home_model -> get_antiName($weed);
+		// print_r($data);
+		$this -> load -> view('header');
 		$this -> load -> view("home_view", $data);
 		$this -> load -> view('footer');
+		//////////////////////////////////////////////////////////////////////////////////////
+		// redirect("home");
 	}
-
 }

@@ -26,6 +26,7 @@ class About extends CI_Controller {
 	public function index()
 	{
 		$data["url_api_value"] = null;
+		$data["citizen_id"] = null;
 		$this->load->view('header', $data);
 		$this->load->view('about_view');
 		$this->load->view('footer');

@@ -73,16 +73,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+// if($this -> session -> userdata('url_api_session') != FALSE) {
+	// $url = $this -> session -> userdata('url_api_session');
+// } else {
+	// $url = "";
+// }
+
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => '',
+	'username' => 'root',
 	'password' => '',
-	'database' => '',
+	// 'hostname' => '158.108.228.86',
+	// 'username' => 'nookskill',
+	// 'password' => '1q2w3e4r',
+	'database' => 'AI',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
-	'db_debug' => (ENVIRONMENT !== 'production'),
+	'db_debug' => TRUE,
 	'cache_on' => FALSE,
 	'cachedir' => '',
 	'char_set' => 'utf8',
